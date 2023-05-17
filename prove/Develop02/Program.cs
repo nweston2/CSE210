@@ -36,7 +36,8 @@ namespace Develop02
                     if (userChoice == "1")
                     {
                         Console.WriteLine();
-                        prompts.GetRandomPrompt();
+                        string entryPrompt = prompts.GetRandomPrompt();
+                        Console.WriteLine(entryPrompt);
                     }
 
                     else if (userChoice == "2")

@@ -6,6 +6,7 @@ namespace Develop02
     public class Prompt
     {
         public List<string> prompts;
+        public string _choice;
         
         public Prompt()
         {
@@ -24,10 +25,11 @@ namespace Develop02
         }
 
         private readonly Random _random = new Random();
-        public void GetRandomPrompt()
+        public string GetRandomPrompt()
         {
             int newNum = _random.Next(0,10);
-            Console.WriteLine($"{prompts[newNum]}");
+            _choice = prompts[newNum];
+            return _choice;
         }
     }
 }
