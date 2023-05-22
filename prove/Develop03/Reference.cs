@@ -1,20 +1,44 @@
+using System;
+
 namespace Develop03
 {
     public class Reference
     {
-        private string _reference;
+        private string _book;
+        private int _chapter;
+        private int _verse;
 
         public Reference()
         {}
 
-        public void SetReference(string citation)
+        public void SetBook(string book)
         {
-            _reference = citation;
+            _book = book;
         }
 
-        public string GetReference()
+        public string GetBook()
         {
-            return _reference;
+            return _book;
+        }
+
+        public void SetChapter(int chapter)
+        {
+            _chapter = chapter;
+        }
+
+        public int GetChapter()
+        {
+            return _chapter;
+        }
+
+        public void SetVerse(int verse)
+        {
+            _verse = verse;
+        }
+
+        public int GetVerse()
+        {
+            return _verse;
         }
     }
 }
