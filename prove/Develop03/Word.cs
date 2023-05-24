@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 
 namespace Develop03
 {
@@ -15,7 +14,7 @@ namespace Develop03
         public void SetInvisible()
         {
             int randNum = _random.Next(0,50);
-            if (randNum < 11)
+            if (randNum < 6)
             {
                 _visible = false;
             }
@@ -34,6 +33,21 @@ namespace Develop03
         public string GetWord()
         {
             return _word;
+        }
+
+        public void DisplayWord()
+        {
+            if (_visible == true)
+            {
+                Console.Write(_word);
+                Console.Write(" ");
+            }
+
+            else if (_visible == false)
+            {
+                Console.Write("____");
+                Console.Write(" ");
+            }
         }
     }
 }

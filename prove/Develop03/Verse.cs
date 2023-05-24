@@ -1,12 +1,11 @@
-using System.Collections.Generic;
+using System;
 
 namespace Develop03
 {
     public class Verse
     {
-        private Reference _reference = new Reference();
-        private List<Word> _words = new List<Word>();
-        public Verse()
+        public Verse(Reference _reference, List<Word> _words)
         {}
+        
     }
 }
