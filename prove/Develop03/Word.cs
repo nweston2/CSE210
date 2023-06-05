@@ -4,8 +4,10 @@ namespace Develop03
 {
     public class Word
     {
+        //string that contains the word itself
         private string _word;
-        private bool _visible = true;
+        //is the word visible in the display? default is true
+        public bool _visible = true;
         private readonly Random _random = new Random();
 
         public Word()
@@ -13,16 +15,12 @@ namespace Develop03
 
         public void SetInvisible()
         {
+            //Randomly determines if word becomes visible
             int randNum = _random.Next(0,50);
             if (randNum < 6)
             {
                 _visible = false;
             }
-        }
-
-        public bool GetInvisible()
-        {
-            return _visible;
         }
 
         public void SetWord(string _string)
@@ -37,6 +35,7 @@ namespace Develop03
 
         public void DisplayWord()
         {
+            //If the word is visible, print it. Otherwise give a blank
             if (_visible == true)
             {
                 Console.Write(_word);

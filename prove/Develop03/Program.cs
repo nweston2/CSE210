@@ -28,6 +28,25 @@ namespace Develop03
             nwSecondStr += "suddenly are my tents spoiled, and my curtains in a moment.";
             nwSecondVerse.SetReference(nwReferenceSecond);
             nwSecondVerse.SetWords(nwSecondStr);
+
+            //Construct full scripture
+            List<Verse> nwVerses = new List<Verse>();
+            nwVerses.Add(nwFirstVerse);
+            nwVerses.Add(nwSecondVerse);
+            Scripture nwScripture = new Scripture();
+            nwScripture.SetVerses(nwVerses);
+
+            //Display
+            string userChoice = "";
+            while (userChoice != "quit")
+            {
+                Console.Clear();
+                nwScripture.CreateReference();
+                nwScripture.DisplayScripture();
+                Console.WriteLine("\nPress any key to clear words.");
+                Console.WriteLine("Type 'quit' to exit.");
+                userChoice = Console.ReadLine();
+            }
         }
     }
 }

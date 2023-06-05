@@ -13,11 +13,18 @@ namespace Develop03
 
         public void SetReference(Reference nwReference)
         {
+            //Set the reference to this verse
             _reference = nwReference;
+        }
+
+        public Reference GetReference()
+        {
+            return _reference;
         }
 
         public void SetWords(string words)
         {
+            //Create a list of Words from the string provided
             _stringList = words.Split(" ").ToList();
             foreach (string nwString in _stringList)
             {
@@ -25,6 +32,11 @@ namespace Develop03
                 nwWord.SetWord(nwString);
                 _wordList.Add(nwWord);
             }
+        }
+
+        public List<Word> GetWords()
+        {
+            return _wordList;
         }
     }
 }
