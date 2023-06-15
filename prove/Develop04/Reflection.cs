@@ -44,6 +44,10 @@ namespace Develop04
             int thoughtNum = _random.Next(0,(_thoughtCount-1));
             _thoughtChoice = thoughts[thoughtNum];
             thoughts.Remove(_thoughtChoice);
+            if (_thoughtCount == 1)
+            {
+                thoughts.Add("Cheers. You've found the limit of this program.");
+            }
             return _thoughtChoice;
         }
 
