@@ -38,7 +38,7 @@ namespace Develop04
             Console.WriteLine(" ");
         }
 
-        public void Run()
+        public void RunBreathing()
         {
             DateTime startTime = DateTime.Now;
             DateTime endTime = startTime.AddSeconds(_userTimer);

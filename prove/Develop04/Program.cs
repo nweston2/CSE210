@@ -24,14 +24,15 @@ namespace Develop04
                 {
                     Breathing bob = new Breathing();
                     bob.StartingMessage();
-                    bob.Run();
+                    bob.RunBreathing();
                     bob.EndingMessage();
                 }
 
                 else if (_userChoice == "2")
                 {
-                    Activity bob = new Reflection();
+                    Reflection bob = new Reflection();
                     bob.StartingMessage();
+                    bob.RunReflection();
                     bob.EndingMessage();
                 }
 

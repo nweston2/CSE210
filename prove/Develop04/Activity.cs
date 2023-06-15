@@ -29,7 +29,7 @@ namespace Develop04
         //Wrap up the activity
         public void EndingMessage()
         {
-            Console.WriteLine("\nWell done!");
+            Console.WriteLine("\nWell done!!");
             this.Loading();
             Console.WriteLine($"\nYou have completed another {_userTimer} seconds of the {_activityName} activity!");
             this.Loading();
