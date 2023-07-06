@@ -11,11 +11,18 @@ namespace Develop02
             return $"{date}\n{prompt}\n{response}";
         }
 
+        public string WriteToFile()
+        {
+            return $"{date}*{prompt}*{response}";
+        }
         public void Hold(string prompt, string response, string date)
         {
             this.prompt = prompt;
             this.response = response;
             this.date = date;
         }
+
+        public Entry()
+        {}
     }
 }
