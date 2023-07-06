@@ -1,0 +1,3 @@
+Simple*Graduate|Get out of here|100|False
+Eternal*Temple|Attend the temple|50|0
+Checklist*Date|Go out with girls|10|50|0|5
