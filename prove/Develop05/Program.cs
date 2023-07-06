@@ -25,17 +25,17 @@ namespace Develop05
 
                 //Points
                 Console.WriteLine($"You have {totalPoints} points.");
-                if (totalPoints > 500)
+                if (totalPoints >= 500)
                 {
                     Console.WriteLine("Wow! You've got over 500 points! Impressive!");
                 }
 
-                else if (totalPoints > 1000)
+                else if (totalPoints >= 1000)
                 {
                     Console.WriteLine("Incredible! You've surpassed 1000 points!");
                 }
 
-                else if(totalPoints > 2000)
+                else if(totalPoints >= 2000)
                 {
                     Console.WriteLine("You're a goal finishing machine!! Keep up the great work!");
                 }
