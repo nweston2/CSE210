@@ -1,18 +1,28 @@
 namespace Final
 {
-    public abstract class Ingredient
+    public class Ingredient
     {
-        private string _name;
-        private float _amount;
+        protected string _name;
+        protected string _unit;
+        protected float _amount;
         private bool _cold;
 
         public Ingredient()
-        {}
+        {
+        }
 
-        public abstract void DoubleSize();
+        public virtual void DoubleSize()
+        {}
         public virtual float Divide()
         {
             return _amount;
+        }
+
+        public void SetStuff(string name, string unit, float amount)
+        {
+            _name = name;
+            _unit = unit;
+            _amount = amount;
         }
     }
 }

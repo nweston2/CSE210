@@ -18,12 +18,23 @@ namespace Final
         public void SaveBook(string fileName)
         {}
 
-        public void NewRecipe()
-        {}
-
-        public List<Recipe> GetRecipes()
+        public void NewRecipe(string name)
         {
-            return _book;
+            Recipe newRecipe = new Recipe(name);
+            newRecipe.AddIngredients();
+            newRecipe.AddSteps();
+            _book.Add(newRecipe);
+        }
+
+        public void ViewBook()
+        {
+            int counter = 0;
+            foreach (Recipe thisRecipe in _book)
+            {
+                counter += 1;
+                string bobName = thisRecipe.GetName();
+                Console.WriteLine($"{counter}. {bobName}");
+            }
         }
     }
 }
