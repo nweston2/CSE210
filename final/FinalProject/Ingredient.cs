@@ -5,24 +5,34 @@ namespace Final
         protected string _name;
         protected string _unit;
         protected float _amount;
-        private bool _cold;
 
         public Ingredient()
         {
         }
 
-        public virtual void DoubleSize()
-        {}
-        public virtual float Divide()
+        public virtual void DoubleSize(bool doubled)
         {
-            return _amount;
+            //doubles the amount needed
         }
 
         public void SetStuff(string name, string unit, float amount)
         {
+            //sets the needed information for the ingredient
             _name = name;
             _unit = unit;
             _amount = amount;
+        }
+
+        public virtual string SaveWriteUp()
+        {
+            //if there isn't an ingredient type, that's a problem
+            return "something went wrong if you're reading this";
+        }
+
+        public virtual string ShoppingWriteUp()
+        {
+            //if there isn't an ingredient type, that's a problem
+            return "something went wrong if you're reading this";
         }
     }
 }

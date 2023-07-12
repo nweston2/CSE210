@@ -10,9 +10,9 @@ namespace Final
         public Cookbook()
         {}
 
-        public List<Recipe> LoadBook(string fileName)
+        public void LoadBook(string fileName)
         {
-            return _book;
+            this.ViewBook();
         }
 
         public void SaveBook(string fileName)

@@ -6,16 +6,17 @@ namespace Final
     public class CookStep
     {
         private string _instruction;
-        private List<Ingredient> _need = new List<Ingredient>();
 
         public void AddInstruction(string newInstruction)
         {
+            //set up the instruction
             _instruction = newInstruction;
         }
 
-        public void AddIngredient(Ingredient newIngredient)
+        public string GetStep()
         {
-            _need.Add(newIngredient);
+            //returns the instruction
+            return _instruction;
         }
     }
 }
