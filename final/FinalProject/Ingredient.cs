@@ -1,3 +1,5 @@
+using System;
+
 namespace Final
 {
     public class Ingredient
@@ -10,14 +12,16 @@ namespace Final
         {
         }
 
-        public virtual void DoubleSize()
+        public void DoubleSize()
         {
             //doubles the amount needed
+            _amount *= 2;
         }
 
-        public virtual void HalfSize()
+        public void HalfSize()
         {
             //returns doubled recipe to normal
+            _amount /= 2;
         }
 
         public void SetStuff(string name, string unit, float amount)
@@ -37,7 +41,12 @@ namespace Final
         public virtual string ShoppingWriteUp()
         {
             //if there isn't an ingredient type, that's a problem
-            return "something went wrong if you're reading this";
+            return $"{_name}";
+        }
+
+        public virtual void IngredientToCook()
+        {
+            Console.WriteLine($"{_amount} {_name}");
         }
     }
 }

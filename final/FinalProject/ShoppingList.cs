@@ -21,8 +21,5 @@ namespace Final
 
         public void SaveList(string fileName)
         {}
-
-        public void LoadList(string fileName)
-        {}
     }
 }

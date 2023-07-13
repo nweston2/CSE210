@@ -10,6 +10,7 @@ namespace Final
             string userChoiceString = "0";
             int userChoice = 0;
             Cookbook currentBook = new Cookbook();
+            Console.Clear();
             Console.WriteLine("Welcome to the Comfy Cookbook!");
 
             while (userChoice != 10)
@@ -21,11 +22,10 @@ namespace Final
                 Console.WriteLine("3. View current cookbook");
                 Console.WriteLine("4. Add recipe");
                 Console.WriteLine("5. View shopping list");
-                Console.WriteLine("6. Load shopping list");
-                Console.WriteLine("7. Save shopping list");
-                Console.WriteLine("8. Edit shopping list");
-                Console.WriteLine("9. Get cooking");
-                Console.WriteLine("10. Quit\n");
+                Console.WriteLine("6. Save shopping list");
+                Console.WriteLine("7. Edit shopping list");
+                Console.WriteLine("8. Get cooking");
+                Console.WriteLine("9. Quit\n");
                 userChoiceString = Console.ReadLine();
                 userChoice = int.Parse(userChoiceString);
                 
@@ -34,6 +34,7 @@ namespace Final
                 {
                     Console.Write("What is the name of the cookbook you would like to load? ");
                     string cookBookName = Console.ReadLine();
+                    cookBookName += ".txt";
                     currentBook.LoadBook(cookBookName);
                 }
 
@@ -42,6 +43,7 @@ namespace Final
                 {
                     Console.Write("What would you like to name this cookbook? ");
                     string cookBookName = Console.ReadLine();
+                    cookBookName += ".txt";
                     currentBook.SaveBook(cookBookName);
                 }
 
@@ -63,24 +65,27 @@ namespace Final
                 else if (userChoice == 5)
                 {}
                 
-                //Load shopping list
+                //Save shopping list
                 else if (userChoice == 6)
                 {}
                 
-                //Save shopping list
+                //Edit shopping list
                 else if (userChoice == 7)
                 {}
                 
-                //Edit shopping list
-                else if (userChoice == 8)
-                {}
-                
                 //Get cooking
-                else if (userChoice == 9)
-                {}
+                else if (userChoice == 8)
+                {
+                    Console.WriteLine("Please enter the index for the recipe you would like to cook: ");
+                    currentBook.ViewBook();
+                    string recipeIndexString = Console.ReadLine();
+                    int recipeIndex = int.Parse(recipeIndexString);
+                    recipeIndex -= 1;
+                    currentBook.CookRecipe(recipeIndex);
+                }
                 
                 //Quit
-                else if (userChoice == 10)
+                else if (userChoice == 9)
                 {
                     Console.Clear();
                     Console.WriteLine("Thanks for cooking with us!");

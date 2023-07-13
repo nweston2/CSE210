@@ -14,7 +14,7 @@ namespace Final
             _name = name;
         }
 
-        public void Cook(Recipe cookRecipe)
+        public void Cook()
         {
             //double the recipe?
             bool doubled = this.DoubleRecipe();
@@ -23,13 +23,26 @@ namespace Final
                 thisIngredient.DoubleSize();
             }
 
+            //optional: list ingredients
+            Console.Write("Would you like to see which ingredients are needed? (y/n) ");
+            string listMaybe = Console.ReadLine();
+            if (listMaybe == "y")
+            {
+                foreach (Ingredient thisIngredient in _ingredients)
+                {
+                    thisIngredient.IngredientToCook();
+                }
+                Console.WriteLine("Press any key when you are ready to continue.");
+                string areYouActuallyReadingThroughThis = Console.ReadLine();
+            }
+
             //go through each step and cook it
             string ready = "";
             foreach (CookStep thisStep in _process)
             {
                 if (doubled)
                 {
-                    Console.WriteLine("Don't forget this recipe is doubled. Any amounts listed should be multiplied by 2.");
+                    Console.WriteLine("Don't forget this recipe is doubled. Any amounts mentioned should be multiplied by 2.");
                 }
 
                 Console.WriteLine(thisStep.GetStep());
@@ -62,6 +75,14 @@ namespace Final
                 }
             }
             Console.WriteLine("");
+        }
+
+        public void StepFromSave(string instruction)
+        {
+            //get a step from a save
+            CookStep newStep = new CookStep();
+            newStep.AddInstruction(instruction);
+            _process.Add(newStep);
         }
 
         public void AddIngredients()
@@ -108,6 +129,32 @@ namespace Final
             Console.WriteLine("");
         }
 
+        public void IngredientFromSave(string parseString)
+        {
+            //get new ingredient from a saved file
+            string[] newIngredient = parseString.Split("|");
+            string type = newIngredient[0];
+
+            Ingredient thisIngredient = new Ingredient();
+            if (type == "solid")
+            {
+                thisIngredient = new Solid();
+            }
+
+            else if (type == "liquid")
+            {
+                thisIngredient = new Liquid();
+            }
+
+            else if (type == "powder")
+            {
+                thisIngredient = new Powder();
+            }
+
+            thisIngredient.SetStuff(newIngredient[1], newIngredient[2], float.Parse(newIngredient[3]));
+            _ingredients.Add(thisIngredient);
+        }
+
         public string GetName()
         {
             //returns the name of the recipe
@@ -138,18 +185,30 @@ namespace Final
             saveString += "@";
 
             //save steps
+            int stepTotal = _process.Count;
+            int currentNum = 0;
             foreach (CookStep thisStep in _process)
             {
                 saveString += thisStep.GetStep();
-                saveString += "*";
+                currentNum += 1;
+                if (currentNum < stepTotal)
+                {
+                    saveString += "*";
+                }
             }
             saveString += "@";
 
             //save ingredients
+            int ingredientTotal = _ingredients.Count;
+            currentNum = 0;
             foreach (Ingredient thisIngredient in _ingredients)
             {
                 saveString += thisIngredient.SaveWriteUp();
-                saveString += "*";
+                currentNum += 1;
+                if (currentNum < ingredientTotal)
+                {
+                    saveString += "*";
+                }
             }
 
             return saveString;

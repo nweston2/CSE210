@@ -1,0 +1,1 @@
+testRecipe@cook once*cook twice*cook thrice@solid|ing1|solid|1.1*liquid|ing2|cup|2*powder|ing3|icup|3
