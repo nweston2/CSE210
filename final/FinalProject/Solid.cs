@@ -7,14 +7,15 @@ namespace Final
         {
         }
 
-        public override void DoubleSize(bool doubled)
+        public override void DoubleSize()
         {
             //Doubles the amount. Should return a whole number
         }
+
         public override string SaveWriteUp()
         {
             //returns a string for save file
-            return $"";
+            return $"solid|{_name}|{_unit}|{_amount}";
         }
 
         public override string ShoppingWriteUp()

@@ -10,9 +10,14 @@ namespace Final
         {
         }
 
-        public virtual void DoubleSize(bool doubled)
+        public virtual void DoubleSize()
         {
             //doubles the amount needed
+        }
+
+        public virtual void HalfSize()
+        {
+            //returns doubled recipe to normal
         }
 
         public void SetStuff(string name, string unit, float amount)

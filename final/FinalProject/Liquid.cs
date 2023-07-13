@@ -6,7 +6,7 @@ namespace Final
         {
         }
 
-        public override void DoubleSize(bool doubled)
+        public override void DoubleSize()
         {
             //doubles the amount
         }
@@ -14,7 +14,7 @@ namespace Final
         public override string SaveWriteUp()
         {
             //returns a string for save file
-            return $"";
+            return $"liquid|{_name}|{_unit}|{_amount}";
         }
 
         public override string ShoppingWriteUp()

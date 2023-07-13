@@ -20,7 +20,7 @@ namespace Final
             bool doubled = this.DoubleRecipe();
             foreach (Ingredient thisIngredient in _ingredients)
             {
-                thisIngredient.DoubleSize(doubled);
+                thisIngredient.DoubleSize();
             }
 
             //go through each step and cook it
@@ -35,6 +35,14 @@ namespace Final
                 Console.WriteLine(thisStep.GetStep());
                 Console.Write("\nPress any key when you are ready to continue. ");
                 ready = Console.ReadLine();
+            }
+
+            foreach (Ingredient thisIngredient in _ingredients)
+            {
+                if (doubled)
+                {
+                    thisIngredient.HalfSize();
+                }
             }
         }
 
@@ -143,6 +151,7 @@ namespace Final
                 saveString += thisIngredient.SaveWriteUp();
                 saveString += "*";
             }
+
             return saveString;
         }
     }

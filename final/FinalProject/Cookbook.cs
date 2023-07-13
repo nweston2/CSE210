@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Final
 {
@@ -12,11 +13,29 @@ namespace Final
 
         public void LoadBook(string fileName)
         {
+            string[] lines = System.IO.File.ReadAllLines(fileName);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(",");
+
+                string firstName = parts[0];
+                string lastName = parts[1];
+            }
+            Console.WriteLine("Your cookbook now includes the following: ");
             this.ViewBook();
         }
 
         public void SaveBook(string fileName)
-        {}
+        {
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+                {
+                    foreach (Recipe thisRecipe in _book)
+                    {
+                        outputFile.WriteLine(thisRecipe.SaveWriteUp());
+                    }
+                }
+        }
 
         public void NewRecipe(string name)
         {

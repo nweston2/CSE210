@@ -10,12 +10,12 @@ namespace Final
             string userChoiceString = "0";
             int userChoice = 0;
             Cookbook currentBook = new Cookbook();
-            Console.WriteLine("Welcome to the Comfy Cookbook!\n");
+            Console.WriteLine("Welcome to the Comfy Cookbook!");
 
             while (userChoice != 10)
             {
                 //Menu
-                Console.WriteLine("What would you like to do?");
+                Console.WriteLine("\nWhat would you like to do?");
                 Console.WriteLine("1. Load cookbook");
                 Console.WriteLine("2. Save current cookbook");
                 Console.WriteLine("3. View current cookbook");
@@ -25,17 +25,25 @@ namespace Final
                 Console.WriteLine("7. Save shopping list");
                 Console.WriteLine("8. Edit shopping list");
                 Console.WriteLine("9. Get cooking");
-                Console.WriteLine("10. Quit");
+                Console.WriteLine("10. Quit\n");
                 userChoiceString = Console.ReadLine();
                 userChoice = int.Parse(userChoiceString);
                 
                 //Load cookbook
                 if (userChoice == 1)
-                {}
+                {
+                    Console.Write("What is the name of the cookbook you would like to load? ");
+                    string cookBookName = Console.ReadLine();
+                    currentBook.LoadBook(cookBookName);
+                }
 
                 //Save current cookbook
                 else if (userChoice == 2)
-                {}
+                {
+                    Console.Write("What would you like to name this cookbook? ");
+                    string cookBookName = Console.ReadLine();
+                    currentBook.SaveBook(cookBookName);
+                }
 
                 //View current cookbook
                 else if (userChoice == 3)
