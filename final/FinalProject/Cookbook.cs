@@ -84,5 +84,10 @@ namespace Final
         {
             _book[recipeIndex].Cook();
         }
+
+        public Recipe GetRecipe(int recipeIndex)
+        {
+            return _book[recipeIndex];
+        }
     }
 }

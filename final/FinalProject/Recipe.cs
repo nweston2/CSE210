@@ -18,9 +18,12 @@ namespace Final
         {
             //double the recipe?
             bool doubled = this.DoubleRecipe();
-            foreach (Ingredient thisIngredient in _ingredients)
+            if (doubled)
             {
-                thisIngredient.DoubleSize();
+                foreach (Ingredient thisIngredient in _ingredients)
+                {
+                    thisIngredient.DoubleSize();
+                }
             }
 
             //optional: list ingredients
@@ -32,7 +35,7 @@ namespace Final
                 {
                     thisIngredient.IngredientToCook();
                 }
-                Console.WriteLine("Press any key when you are ready to continue.");
+                Console.Write("Press any key when you are ready to continue.");
                 string areYouActuallyReadingThroughThis = Console.ReadLine();
             }
 
@@ -50,6 +53,7 @@ namespace Final
                 ready = Console.ReadLine();
             }
 
+            //make sure recipe returns to normal amounts if doubled
             foreach (Ingredient thisIngredient in _ingredients)
             {
                 if (doubled)
@@ -61,7 +65,7 @@ namespace Final
 
         public void AddSteps()
         {
-            //Get steps needed to cook recipe
+            //Get steps needed to cook recipe from user
             string instruction = "";
             while (instruction != "quit")
             {
@@ -87,7 +91,7 @@ namespace Final
 
         public void AddIngredients()
         {
-            //Get ingredients needed to cook recipe
+            //Get ingredients needed to cook recipe from user
             string ingredientName = "";
             while (ingredientName != "quit")
             {
@@ -98,7 +102,7 @@ namespace Final
                 {
                     Console.Write("Is this ingredient a solid, liquid, or powder? ");
                     string state = Console.ReadLine();
-                    Console.Write("What unit of measurement will this ingredient use? (Enter \"solid\" for individual items) ");
+                    Console.Write("What unit of measurement will this ingredient use? (ex:lbs, cups, tablespoon, etc.) ");
                     string unit = Console.ReadLine();
                     Console.Write("How much will you need? (Units are provided in previous step. Enter fractions as a decimal if necessary) ");
                     string amountString = Console.ReadLine();
@@ -167,6 +171,7 @@ namespace Final
             Console.Write("Would you like to double this recipe today? (y/n) ");
             string doubleYNString = Console.ReadLine();
             bool doubleYN = false;
+
             if (doubleYNString == "y")
             {
                 doubleYN = true;
@@ -212,6 +217,11 @@ namespace Final
             }
 
             return saveString;
+        }
+
+        public List<Ingredient> GetIngredients()
+        {
+            return _ingredients;
         }
     }
 }

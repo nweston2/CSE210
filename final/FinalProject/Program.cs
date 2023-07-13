@@ -13,7 +13,7 @@ namespace Final
             Console.Clear();
             Console.WriteLine("Welcome to the Comfy Cookbook!");
 
-            while (userChoice != 10)
+            while (userChoice != 7)
             {
                 //Menu
                 Console.WriteLine("\nWhat would you like to do?");
@@ -21,11 +21,9 @@ namespace Final
                 Console.WriteLine("2. Save current cookbook");
                 Console.WriteLine("3. View current cookbook");
                 Console.WriteLine("4. Add recipe");
-                Console.WriteLine("5. View shopping list");
-                Console.WriteLine("6. Save shopping list");
-                Console.WriteLine("7. Edit shopping list");
-                Console.WriteLine("8. Get cooking");
-                Console.WriteLine("9. Quit\n");
+                Console.WriteLine("5. Make shopping list");
+                Console.WriteLine("6. Get cooking");
+                Console.WriteLine("7. Quit\n");
                 userChoiceString = Console.ReadLine();
                 userChoice = int.Parse(userChoiceString);
                 
@@ -61,20 +59,102 @@ namespace Final
                     currentBook.NewRecipe(recipeName);
                 }
                 
-                //View shopping list
+                //Make shopping list
                 else if (userChoice == 5)
-                {}
-                
-                //Save shopping list
-                else if (userChoice == 6)
-                {}
-                
-                //Edit shopping list
-                else if (userChoice == 7)
-                {}
+                {
+                    ShoppingList currentShoppingList = new ShoppingList();
+
+                    //shopping list menu
+                    string listChoice = "";
+                    Console.Clear();
+                    while (listChoice != "4")
+                    {
+                        Console.WriteLine("What would you like to do? ");
+                        Console.WriteLine("1. View shopping list");
+                        Console.WriteLine("2. Edit shopping list");
+                        Console.WriteLine("3. Save shopping list");
+                        Console.WriteLine("4. Back to main menu");
+                        listChoice = Console.ReadLine();
+
+                        //view list
+                        if (listChoice == "1")
+                        {
+                            currentShoppingList.ViewList();
+                        }
+
+                        //edit list
+                        else if (listChoice == "2")
+                        {
+                            //add or remove?
+                            Console.Clear();
+                            string editChoice;
+                            Console.Write("Would you like to 'add' items to the list or 'remove' them? ");
+                            editChoice = Console.ReadLine();
+
+                            //add new things to shopping list
+                            if (editChoice == "add")
+                            {
+                                //which recipe needs ingredients
+                                string addChoiceString;
+                                Console.WriteLine("Enter the index of the recipe you would like to get ingredients for. ");
+                                currentBook.ViewBook();
+                                addChoiceString = Console.ReadLine();
+                                int addChoice = int.Parse(addChoiceString);
+                                addChoice -= 1;
+
+                                currentShoppingList.AddToList(currentBook.GetRecipe(addChoice));
+                            }
+
+                            //remove items from shopping list
+                            else if (editChoice == "remove")
+                            {
+                                string youDone = "";
+                                while (youDone != "n")
+                                {
+                                    string removeString;
+                                    Console.WriteLine("Which item would you like to remove? ");
+                                    currentShoppingList.ViewList();
+                                    removeString = Console.ReadLine();
+                                    int removeInt = int.Parse(removeString);
+                                    removeInt -= 1;
+                                    currentShoppingList.AlreadyHave(removeInt);
+
+                                    Console.Write("Would you like to remove another item? (y/n) ");
+                                    youDone = Console.ReadLine();
+                                }
+                            }
+                        }
+
+                        //save list
+                        else if (listChoice == "3")
+                        {
+                            string saveName;
+                            Console.WriteLine("What would you like to name your shopping list? ");
+                            saveName = Console.ReadLine();
+                            saveName += ".txt";
+
+                            currentShoppingList.SaveList(saveName);
+                        }
+
+                        //exit
+                        else if (listChoice == "4")
+                        {
+                            //make sure they understand the consequences of their actions
+                            string exitCheck = "";
+                            Console.Write("Are you sure you want to leave? All unsaved data will be lost. (y/n) ");
+                            exitCheck = Console.ReadLine();
+
+                            //reenter list society
+                            if (exitCheck == "n")
+                            {
+                                listChoice = "0";
+                            }
+                        }
+                    }
+                }
                 
                 //Get cooking
-                else if (userChoice == 8)
+                else if (userChoice == 6)
                 {
                     Console.WriteLine("Please enter the index for the recipe you would like to cook: ");
                     currentBook.ViewBook();
@@ -85,7 +165,7 @@ namespace Final
                 }
                 
                 //Quit
-                else if (userChoice == 9)
+                else if (userChoice == 7)
                 {
                     Console.Clear();
                     Console.WriteLine("Thanks for cooking with us!");
