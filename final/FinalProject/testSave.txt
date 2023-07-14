@@ -1,1 +1,2 @@
 testRecipe@cook once*cook twice*cook thrice@solid|ing1|solid|1.1*liquid|ing2|cup|2*powder|ing3|icup|3
+toffee@Warm the sugar in a cast iron pan.*Add butter and water.*Stir over low to medium heat until it turns a nice wooden color.*Pour onto a cookie sheet.*Allow to cool for a minute or two.*Add chocolate on top and spread it out as it melts.*Cool until both toffee and chocolate are solid.*Smash and grab.@powder|sugar|cup|1*solid|butter|stick|2*liquid|water|tablespoon|2*solid|chocolate chips|cups|1

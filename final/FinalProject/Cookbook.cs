@@ -42,6 +42,7 @@ namespace Final
             }
 
             //show the user the recipes they have now
+            Console.Clear();
             Console.WriteLine("Your cookbook now includes the following: ");
             this.ViewBook();
         }
@@ -65,12 +66,12 @@ namespace Final
             newRecipe.AddIngredients();
             newRecipe.AddSteps();
             _book.Add(newRecipe);
+            Console.Clear();
         }
 
         public void ViewBook()
         {
             //show the user what recipes they have in their cookbook
-            Console.WriteLine("Here is a list of your recipes: ");
             int counter = 0;
             foreach (Recipe thisRecipe in _book)
             {

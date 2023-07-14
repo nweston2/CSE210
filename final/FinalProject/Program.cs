@@ -43,11 +43,14 @@ namespace Final
                     string cookBookName = Console.ReadLine();
                     cookBookName += ".txt";
                     currentBook.SaveBook(cookBookName);
+                    Console.Clear();
                 }
 
                 //View current cookbook
                 else if (userChoice == 3)
                 {
+                    Console.Clear();
+                    Console.WriteLine("Here is a list of your recipes: ");
                     currentBook.ViewBook();
                 }
                 
@@ -65,11 +68,11 @@ namespace Final
                     ShoppingList currentShoppingList = new ShoppingList();
 
                     //shopping list menu
-                    string listChoice = "";
                     Console.Clear();
+                    string listChoice = "";
                     while (listChoice != "4")
                     {
-                        Console.WriteLine("What would you like to do? ");
+                        Console.WriteLine("\nWhat would you like to do? ");
                         Console.WriteLine("1. View shopping list");
                         Console.WriteLine("2. Edit shopping list");
                         Console.WriteLine("3. Save shopping list");
@@ -79,6 +82,7 @@ namespace Final
                         //view list
                         if (listChoice == "1")
                         {
+                            Console.Clear();
                             currentShoppingList.ViewList();
                         }
 
@@ -96,13 +100,16 @@ namespace Final
                             {
                                 //which recipe needs ingredients
                                 string addChoiceString;
-                                Console.WriteLine("Enter the index of the recipe you would like to get ingredients for. ");
+                                Console.WriteLine("\nEnter the index of the recipe you would like to get ingredients for. ");
                                 currentBook.ViewBook();
                                 addChoiceString = Console.ReadLine();
                                 int addChoice = int.Parse(addChoiceString);
                                 addChoice -= 1;
 
                                 currentShoppingList.AddToList(currentBook.GetRecipe(addChoice));
+
+                                Console.Clear();
+                                Console.WriteLine("Success!");
                             }
 
                             //remove items from shopping list
@@ -116,11 +123,11 @@ namespace Final
                                     currentShoppingList.ViewList();
                                     removeString = Console.ReadLine();
                                     int removeInt = int.Parse(removeString);
-                                    removeInt -= 1;
                                     currentShoppingList.AlreadyHave(removeInt);
 
-                                    Console.Write("Would you like to remove another item? (y/n) ");
+                                    Console.Write("\nWould you like to remove another item? (y/n) ");
                                     youDone = Console.ReadLine();
+                                    Console.Clear();
                                 }
                             }
                         }
@@ -129,11 +136,14 @@ namespace Final
                         else if (listChoice == "3")
                         {
                             string saveName;
-                            Console.WriteLine("What would you like to name your shopping list? ");
+                            Console.Write("\nWhat would you like to name your shopping list? ");
                             saveName = Console.ReadLine();
                             saveName += ".txt";
 
                             currentShoppingList.SaveList(saveName);
+
+                            Console.Clear();
+                            Console.WriteLine("Success!");
                         }
 
                         //exit
@@ -141,14 +151,21 @@ namespace Final
                         {
                             //make sure they understand the consequences of their actions
                             string exitCheck = "";
-                            Console.Write("Are you sure you want to leave? All unsaved data will be lost. (y/n) ");
+                            Console.Write("\nAre you sure you want to leave? All unsaved data will be lost. (y/n) ");
                             exitCheck = Console.ReadLine();
 
                             //reenter list society
                             if (exitCheck == "n")
                             {
                                 listChoice = "0";
+                                Console.Clear();
                             }
+                        }
+
+                        else
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Please enter the number of a valid option");
                         }
                     }
                 }
@@ -174,6 +191,7 @@ namespace Final
                 //For the smart alecs
                 else
                 {
+                    Console.Clear();
                     Console.WriteLine("Please select a valid number");
                 }
             }

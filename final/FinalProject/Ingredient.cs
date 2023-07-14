@@ -46,7 +46,7 @@ namespace Final
 
         public virtual void IngredientToCook()
         {
-            Console.WriteLine($"{_amount} {_name}");
+            Console.WriteLine($"{_amount} {_unit} {_name}");
         }
     }
 }

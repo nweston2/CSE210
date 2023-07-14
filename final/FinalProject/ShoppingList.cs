@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace Final
 {
@@ -31,16 +32,24 @@ namespace Final
         {
             //shows user current shopping list
             int counter = 0;
+            Console.WriteLine("\nYour current shopping list: ");
             foreach (Ingredient thisIngredient in _ingredients)
             {
                 counter += 1;
-                Console.Write($"{counter}. {thisIngredient.SaveWriteUp()}");
+                Console.WriteLine($"{counter}. {thisIngredient.ShoppingWriteUp()}");
             }
         }
 
         public void SaveList(string fileName)
         {
             //sends shopping list to "printable" file
+            using (StreamWriter outputFile = new StreamWriter(fileName))
+            {
+                foreach (Ingredient thisIngredient in _ingredients)
+                {
+                    outputFile.WriteLine(thisIngredient.ShoppingWriteUp());
+                }
+            }
         }
     }
 }

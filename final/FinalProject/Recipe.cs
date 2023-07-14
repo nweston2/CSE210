@@ -35,7 +35,7 @@ namespace Final
                 {
                     thisIngredient.IngredientToCook();
                 }
-                Console.Write("Press any key when you are ready to continue.");
+                Console.Write("\nPress any key when you are ready to continue.");
                 string areYouActuallyReadingThroughThis = Console.ReadLine();
             }
 
@@ -49,7 +49,7 @@ namespace Final
                 }
 
                 Console.WriteLine(thisStep.GetStep());
-                Console.Write("\nPress any key when you are ready to continue. ");
+                Console.Write("Press any key when you are ready to continue.\n");
                 ready = Console.ReadLine();
             }
 
@@ -61,6 +61,9 @@ namespace Final
                     thisIngredient.HalfSize();
                 }
             }
+
+            Console.Clear();
+            Console.WriteLine("Congradulations! Recipe complete!\n");
         }
 
         public void AddSteps()
